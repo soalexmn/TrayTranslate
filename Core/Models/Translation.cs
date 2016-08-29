@@ -12,6 +12,13 @@ namespace Core.Models
         public List<TranslationVariant> Translations { get; set; }
         public string TargetLanguage { get; set; }
 
+
+        public Translation()
+        {
+            Translations = new List<TranslationVariant>();
+        }
+        
+
         public TranslationVariant BaseTranslate()
         {
             return Translations.OrderByDescending(t => t.Frequency).First();

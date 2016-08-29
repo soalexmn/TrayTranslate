@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CBC4F9CC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrayTranslate.Tests", "TrayTranslate.Tests\TrayTranslate.Tests.csproj", "{2E503541-D859-4E8F-B6A5-810C8B4FFB5D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Tests", "Core.Tests\Core.Tests.csproj", "{C03EA637-1418-48C9-A850-232DB0FA9599}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +31,16 @@ Global
 		{2E503541-D859-4E8F-B6A5-810C8B4FFB5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E503541-D859-4E8F-B6A5-810C8B4FFB5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E503541-D859-4E8F-B6A5-810C8B4FFB5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03EA637-1418-48C9-A850-232DB0FA9599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03EA637-1418-48C9-A850-232DB0FA9599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03EA637-1418-48C9-A850-232DB0FA9599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03EA637-1418-48C9-A850-232DB0FA9599}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2E503541-D859-4E8F-B6A5-810C8B4FFB5D} = {CBC4F9CC-43F9-4BEA-8FAB-BECAA7920AD7}
+		{C03EA637-1418-48C9-A850-232DB0FA9599} = {CBC4F9CC-43F9-4BEA-8FAB-BECAA7920AD7}
 	EndGlobalSection
 EndGlobal
