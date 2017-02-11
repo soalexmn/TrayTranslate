@@ -1,7 +1,9 @@
 ﻿using Gma.System.MouseKeyHook;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,8 +12,6 @@ namespace TrayTranslate
 {
     public class KeyboardProvider
     {
-        Action _callback;
-        Keys _key;
 
 
         public void SencControlC()
@@ -19,28 +19,29 @@ namespace TrayTranslate
             SendKeys.SendWait(@"^c");
         }
 
-        public void SetHook(Keys key, Action callback)
+        public void SetHook(KeyEventHandler callback)
         {
             IKeyboardEvents keyboardEvents = Hook.GlobalEvents();
-            _callback = callback;
-            keyboardEvents.KeyDown += keyboardEvents_KeyDown;
+            keyboardEvents.KeyDown += callback;
         }
 
-        public void StopHooking()
+        public void RemoveAllKeyDownHooks()
         {
-
+            StopHooking("KeyDown");
         }
 
-        void keyboardEvents_KeyDown(object sender, KeyEventArgs e)
+        public void StopHooking(string eventName)
         {
-            if (e.KeyCode == _key)
-            {
-                if (_callback != null)
-                {
-                    _callback();
-                }
-            }
+            var globalEvents = Hook.GlobalEvents();
+            FieldInfo eventField = typeof(IKeyboardEvents).GetField(eventName, BindingFlags.Static | BindingFlags.NonPublic);
+            object eventFieldValue = eventField.GetValue(globalEvents);
+
+            PropertyInfo pi = globalEvents.GetType().GetProperty("Events",BindingFlags.NonPublic | BindingFlags.Instance);
+            EventHandlerList list = (EventHandlerList)pi.GetValue(globalEvents, null);
+
+            list.RemoveHandler(eventFieldValue, list[eventFieldValue]);
         }
+        
 
         
     }

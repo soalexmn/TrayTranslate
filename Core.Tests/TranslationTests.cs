@@ -5,7 +5,7 @@ using Core.Models;
 namespace Core.Tests
 {
     [TestClass]
-    public class TranslationTest
+    public class TranslationTests
     {
         [TestMethod]
         public void BaseTranslateGetFirst()
